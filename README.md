@@ -1,2 +1,4 @@
 # Blog
-A Blog Built From Node,Express and EJS
+(Unfinished)
+
+A simple Blog Built from scratch with Node ,Express and EJS
