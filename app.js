@@ -10,10 +10,19 @@ const contactContent = "Contact details coming soon";
 
 const app = express();
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
+
 app.set('view engine', 'ejs');
 
+let postarray = [];
+
 app.get("/",function(req,res){
-  res.render("home",{start:homeStartingContent});
+  res.render("home",{
+    start:homeStartingContent,
+    posts:postarray
+  });
+
 })
 
 app.get("/contact",function(req,res){
@@ -25,9 +34,23 @@ app.get("/about",function(req,res){
   res.render("about",{start:aboutContent});
 })
 
+app.get("/compose",function(req,res){
+  res.render("compose");
+})
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+app.post("/compose",function(req,res){
+  let posttitle = req.body.title;
+  let posttext = req.body.posttext;
+
+  var post = {
+    ptitle:posttitle,
+    ptext:posttext
+  };
+
+  postarray.push(post);
+  res.redirect("/");
+
+})
 
 
 

@@ -1,4 +1,7 @@
 <%- include partials/header.ejs %>
 <h1>Hello!!</h1>
 <p><%= start%></p>
+<% posts.forEach(function(post){ %>
+<%  console.log(post.ptitle);  %>
+<% }) %>
 <%- include partials/footer.ejs %>
