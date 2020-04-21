@@ -29,6 +29,11 @@ app.get("/contact",function(req,res){
   res.render("contact",{start:contactContent});
 })
 
+app.get("/posts/:postid",function(req,res){
+  console.log(req.params.postid);
+
+})
+
 
 app.get("/about",function(req,res){
   res.render("about",{start:aboutContent});

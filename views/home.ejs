@@ -2,6 +2,10 @@
 <h1>Hello!!</h1>
 <p><%= start%></p>
 <% posts.forEach(function(post){ %>
-<%  console.log(post.ptitle);  %>
+<div class="new-post">
+  <h1><%=post.ptitle%></h1>
+  <p><%= post.ptext%></p>
+
+</div>
 <% }) %>
 <%- include partials/footer.ejs %>
