@@ -2,9 +2,11 @@
 <h1>Hello!!</h1>
 <p><%= start%></p>
 <% posts.forEach(function(post){ %>
+  <% p2text = post.ptext.substring(0,10)%>
 <div class="new-post">
   <h1><%=post.ptitle%></h1>
-  <p><%= post.ptext%></p>
+  <p><%= p2text%>...</p>
+  <a href="/posts/<%=post.ptitle%>">Read More</a>
 
 </div>
 <% }) %>

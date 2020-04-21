@@ -3,6 +3,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const _ = require("lodash");
 
 const homeStartingContent = "Work in progress!";
 const aboutContent = "About details coming soon!";
@@ -30,7 +31,12 @@ app.get("/contact",function(req,res){
 })
 
 app.get("/posts/:postid",function(req,res){
-  console.log(req.params.postid);
+  const reqroute = _.lowerCase(req.params.postid);
+  postarray.forEach(function(post){
+    if(reqroute == _.lowerCase(post.ptitle)){
+      res.render("post",{ptitle:post.ptitle,ptext:post.ptext})
+    }
+  });
 
 })
 
